@@ -1,6 +1,10 @@
 " startup {{{
-execute pathogen#infect()                 " load pathogen
+execute pathogen#infect()
+
+let s:running_windows = has("win16") || has("win32") || has("win64")
+
 " }}}
+
 " basics {{{
 filetype plugin indent on                 " determine filetype based on name and possibly contents
 syntax on                                 " enable syntax processing
@@ -14,7 +18,7 @@ set nocompatible                          " ward off weird behaviour that comes 
 set noundofile                            " disable persistent undo file
 set shell=/bin/zsh                        " specify the shell to use
 set spell spelllang=en_gb                 " set the spell check language
-if s:running_windows
+if s:running_windows                      " remember to check these folders exist
    set backupdir=~/vimfiles/backup        " where to put backup files
    set directory=~/vimfiles/temp          " directory to place swap files in
 else
@@ -116,24 +120,27 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>                 " edit .zshrc
 " }}}
 
 " autocommands {{{
+
 " Rainbow Parens {{{
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 " }}}
+
 " Remember everything (position, folds, etc) {{{
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
 " }}}
-
+" }}}
 " Control shortcuts {{{
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " }}}
-   
 " }}}
-   
+
+
+
 " vim:foldmethod=marker:foldlevel=0
