@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dardav/.oh-my-zsh
 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -87,7 +88,7 @@ export LSCOLORS='Exfxcxdxbxegedabagacad'
 
 alias dev="cd ~/development"
 alias cdws="cd ~/development/workspaces"
-
+alias sandbox="source ~/development/workspaces/config/dotfiles/setupsandbox.sh"
 alias vconf="vim ~/.vimrc"
 alias zconf="vim ~/.zshrc"
 alias zsrc="source ~/.zshrc"
@@ -98,4 +99,3 @@ alias vim="/usr/bin/vim"
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias ll="ls -Gla"
 
-alias bkconf="cp ~/.vimrc ~/development/workspaces/config/dotfiles/vim && cp ~/.zshrc ~/development/workspaces/config/dotfiles/oh_my_zsh"
