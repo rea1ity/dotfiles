@@ -1,7 +1,7 @@
 " startup {{{
 execute pathogen#infect()
 
-let s:running_windows = has("win16") || has("win32") || has("win64")
+let s:running_windows = has("win16") || has("win32") || has("win64") || system("uname") =~ "MSYS_NT"
 " }}}
 
 " basics {{{
@@ -17,13 +17,8 @@ set nocompatible                          " ward off weird behaviour that comes 
 set noundofile                            " disable persistent undo file
 set shell=/bin/zsh                        " specify the shell to use
 set spell spelllang=en_gb                 " set the spell check language
-if s:running_windows                      " remember to check these folders exist
-   set backupdir=$HOME/vimfiles/backup    " where to put backup files
-   set directory=$HOME/vimfiles/temp      " directory to place swap files in
-else
-   set backupdir=$HOME/.vim/backup        " where to put backup files
-   set directory=$HOME/.vim/temp          " directory to place swap files in
-endif
+set backupdir=$HOME/vimfiles/backup       " where to put backup files
+set directory=$HOME/vimfiles/temp         " directory to place swap files in
 
 au FocusLost * :wa                        " autosave the file when the focus is lost
 " }}}
@@ -51,6 +46,7 @@ set wildmenu                              " visual autocomplete for command menu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
 set wildmode=list:longest                 " turn on wild mode huge list
 set visualbell                            " blink the screen
+
 " }}}
 
 " text formatting {{{
@@ -95,6 +91,16 @@ nnoremap <leader><space> :noh<cr>         " turn off search highlight until next
 " Basics {{{
 let mapleader=","
 " }}}
+
+" arrow keys {{{
+if s:running_windows
+   set t_ku=[A
+   set t_kd=[B
+   set t_kl=[D
+   set t_kr=[C
+endif
+" }}}
+
 
 " Miscellaneous {{{
 nnoremap <tab> %

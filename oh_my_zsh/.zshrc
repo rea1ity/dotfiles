@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/dardav/.oh-my-zsh
-
+export ZSH=/c/Users/dardav/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -19,7 +18,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -84,18 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export LSCOLORS='Exfxcxdxbxegedabagacad'
+# remove the trailing % following command execution - http://zsh.sourceforge.net/FAQ/zshfaq03.html#l40
+unsetopt promptcr
 
-alias dev="cd ~/development"
-alias cdws="cd ~/development/workspaces"
-alias sandbox="source ~/development/workspaces/config/dotfiles/setupsandbox.sh"
-alias vconf="vim ~/.vimrc"
-alias zconf="vim ~/.zshrc"
-alias zsrc="source ~/.zshrc"
 
-alias ds="dd if=/dev/zero of=/tmp/output.img bs=8k count=256k"
-alias vi="/usr/bin/vim"
-alias vim="/usr/bin/vim"
-alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
-alias ll="ls -Gla"
 
