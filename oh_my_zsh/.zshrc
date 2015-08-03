@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/c/Users/dardav/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -37,7 +37,7 @@ export UPDATE_ZSH_DAYS=13
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
+# Uncomment the following line if you want to change the command execution ti#me
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
@@ -52,8 +52,8 @@ export UPDATE_ZSH_DAYS=13
 plugins=(git brew mvn)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# paths set in paths.zsh custom file
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

@@ -17,13 +17,14 @@ set nocompatible                          " ward off weird behaviour that comes 
 set noundofile                            " disable persistent undo file
 set shell=/bin/zsh                        " specify the shell to use
 set spell spelllang=en_gb                 " set the spell check language
-set backupdir=$HOME/vimfiles/backup       " where to put backup files
-set directory=$HOME/vimfiles/temp         " directory to place swap files in
+set backupdir=$HOME/.vim/backup           " where to put backup files
+set directory=$HOME/.vim/temp             " directory to place swap files in
 
 au FocusLost * :wa                        " autosave the file when the focus is lost
 " }}}
 
 " vim ui stuff {{{
+let g:solarized_termcolors=256            " support 256 colour solarized
 colorscheme solarized                     " solarize the colours
 set guifont=Anonymous\ Pro\ Minus:h15     " set the font for the gui - doesn't affect vim from the commandline (use console settings for that)
 set background=dark                       " dark background

@@ -1,3 +1,16 @@
+case $OSTYPE in
+   linux-gnu)
+      workspaces_locn="/mnt/dev/sandbox/workspaces"
+      ;;
+   MSYS_NT)
+      workspaces_locn="/c/projects"
+      ;;
+   Darwin)
+      workspaces_locn="~/development/workspaces"
+      ;;
+esac
+
+
 # Export existing paths.
 typeset -gxU path PATH
 typeset -gxU cdpath CDPATH
@@ -26,7 +39,7 @@ setopt auto_cd
 cdpath=(
   .
   $HOME
-  /c/projects
+  ${workspaces_locn}
 )
 cdpath=($^cdpath(N-/))
 
