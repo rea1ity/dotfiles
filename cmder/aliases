@@ -1,12 +1,14 @@
 e.=explorer .
 gl=git log --oneline --all --graph --decorate  $*
 ls=ls --show-control-chars -F --color $*
-ll=ls -la
+ll=ls --show-control-chars --color -Fla $*
 pwd=cd
 clear=cls
 history=cat %CMDER_ROOT%\config\.history
 unalias=alias /d $1
-sandbox=C:\devel\scripts\sandbox.bat  
-dev=cd C:\devel\  
-cdws=cd c:\projects\  
+sandbox=C:\devel\scripts\sandbox.bat
+dev=cd C:\devel\
+cdws=cd c:\projects\
 cd~=cd c:\users\dardav
+vi=vim $*
+

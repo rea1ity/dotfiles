@@ -2,7 +2,6 @@
 execute pathogen#infect()
 
 let s:running_windows = has("win16") || has("win32") || has("win64")
-
 " }}}
 
 " basics {{{
@@ -19,11 +18,11 @@ set noundofile                            " disable persistent undo file
 set shell=/bin/zsh                        " specify the shell to use
 set spell spelllang=en_gb                 " set the spell check language
 if s:running_windows                      " remember to check these folders exist
-   set backupdir=~/vimfiles/backup        " where to put backup files
-   set directory=~/vimfiles/temp          " directory to place swap files in
+   set backupdir=$HOME/vimfiles/backup    " where to put backup files
+   set directory=$HOME/vimfiles/temp      " directory to place swap files in
 else
-   set backupdir=~/.vim/backup            " where to put backup files
-   set directory=~/.vim/temp              " directory to place swap files in
+   set backupdir=$HOME/.vim/backup        " where to put backup files
+   set directory=$HOME/.vim/temp          " directory to place swap files in
 endif
 
 au FocusLost * :wa                        " autosave the file when the focus is lost
@@ -115,8 +114,8 @@ nnoremap <leader>rn :set relativenumber!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>                 " edit vimrc
-nnoremap <leader>rc :source $MYVIMRC<CR>              " reload vimrc
-nnoremap <leader>ez :vsp ~/.zshrc<CR>                 " edit .zshrc
+nnoremap <leader>rc :source $MYVIMRC!<CR>             " reload vimrc
+nnoremap <leader>ez :vsp $HOME/.zshrc<CR>                 " edit .zshrc
 " }}}
 
 " autocommands {{{
