@@ -83,8 +83,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# remove the trailing % following command execution - http://zsh.sourceforge.net/FAQ/zshfaq03.html#l40
-unsetopt promptcr
-
-
 
