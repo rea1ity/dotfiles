@@ -2,7 +2,7 @@ case $OSTYPE in
    linux-gnu)
       workspaces_locn="/mnt/dev/sandbox/workspaces"
       ;;
-   MSYS_NT)
+   msys)
       workspaces_locn="/c/projects"
       ;;
    Darwin)

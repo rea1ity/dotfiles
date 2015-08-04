@@ -10,7 +10,7 @@ case $OSTYPE in
       alias sandbox="source /mnt/dev/sandbox/workspaces/dotfiles/sandbox/sandbox.zsh"
     ;;
 
-   MSYS_NT)
+   msys)
       # running on windows under msys
       export LSCOLORS="exfxcxdxbxegedabagacad"
       alias ls="ls -G $*"

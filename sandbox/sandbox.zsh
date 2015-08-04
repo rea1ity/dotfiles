@@ -12,13 +12,13 @@ case $OSTYPE in
       java_locn="openjdk8"
       idea_locn="idea-IU"
       ;;
-   MSYS_NT)
+   msys)
       echo "running on msys under windows..."
       export MSYSTEM=MSYS
 
       sandbox_home="/c/devel"
       sandbox_workspaces="/c/projects"
-      java_locn="/java/jdk1.8"
+      java_locn="java/jdk1.8"
       idea_locn="idea"
       ;;
    Darwin)
@@ -34,6 +34,7 @@ sandbox_lang=${sandbox_home}/langs
 sandbox_build=${sandbox_home}/build
 sandbox_ide=${sandbox_home}/ide
 sandbox_tools=${sandbox_home}/tools
+sandbox_scm=${sandbox_home}/scm
 
 export SANDBOX_HOME=${sandbox_home}
 export DEV_WORKSPACES="${sandbox_workspaces}"
@@ -43,7 +44,7 @@ case $OSTYPE in
    linux-gnu)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
       ;;
-   MSYS_NT)
+   msys)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
       ;;
    Darwin)
@@ -90,7 +91,7 @@ path+=(${IDEA_HOME}/bin)
 path+=(${ANDROID_HOME}/platform-tools)
 path+=(${sandbox_home}/scripts)
 
-if [[ $OSTYPE =~ "MSYS_NT" ]]
+if [[ $OSTYPE =~ "msys" ]]
 then
    path+=(${GIT_HOME}/cmd)
 fi
@@ -102,7 +103,7 @@ typeset -U path
 echo "environment..."
 echo "home: " $SANDBOX_HOME
 echo "path: " $PATH
-#mvn -v
-#java -version
+mvn -v
+java -version
 
 
