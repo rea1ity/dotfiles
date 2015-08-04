@@ -10,6 +10,7 @@ case $OSTYPE in
       sandbox_home="/mnt/dev/sandbox"
       sandbox_workspaces=${sandbox_home}/workspaces
       java_locn="openjdk8"
+      orcl_java="jdk1.8"
       idea_locn="idea-IU"
       ;;
    msys)
@@ -19,13 +20,15 @@ case $OSTYPE in
       sandbox_home="/c/devel"
       sandbox_workspaces="/c/projects"
       java_locn="java/jdk1.8"
+      orcl_java="java/jdk1.8"
       idea_locn="idea"
       ;;
-   Darwin)
+   darwin14.0)
       echo "running on mac..."
-      sandbox_home="/Applications/dev\ stuff"
+      sandbox_home="/Applications/dev_stuff"
       sandbox_workspaces="~/development/workspaces"
       java_locn="openjdk1.8.0.jdk"
+      orcl_java="jdk1.8.0.jdk"
       idea_locn="Intellij IDEA.app/Contents"
       ;;
 esac
@@ -47,7 +50,7 @@ case $OSTYPE in
    msys)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
       ;;
-   Darwin)
+   darwin14.0)
       export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
       ;;
 esac
@@ -62,9 +65,10 @@ export ANDROID_HOME="${sandbox_lang}/android-sdk"
 echo "setting up ides..."
 export IDEA_HOME="${sandbox_ide}/${idea_locn}"
 export IDEA_PROPERTIES="${IDEA_HOME}/bin/idea.properties"
-export IDEA_JDK="${sandbox_lang}/${java_locn}"
+export IDEA_JDK="${sandbox_lang}/${orcl_java}"
+export IDEA_JDK_64="${sandbox_lang}/${orcl_java}"
 export ANDROID_STUDIO_HOME="${sandbox_ide}/android-studio"
-export STUDIO_JDK="${sandbox_lang}/${java_locn}"
+export STUDIO_JDK="${sandbox_lang}/${orcl_java}"
 
 echo "setting up development tooling..."
 export GIT_HOME="${sandbox_scm}/git"

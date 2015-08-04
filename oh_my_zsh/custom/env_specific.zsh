@@ -34,15 +34,15 @@ case $OSTYPE in
       unsetopt promptcr
     ;;
 
-   Darwin)
+   darwin14.0)
       export LSCOLORS="exfxcxdxbxegedabagacad"
       alias ls="ls -G $*"
       alias ll="ls -Gla $*"
 
-      alias dev="cd /Applications/dev\ stuff"
-      alias cdws="cd ~/workspaces"
-      alias sandbox="source ~/workspaces/dotfiles/sandbox/sandbox.zsh"
+      alias dev="cd /Applications/dev_stuff"
+      alias cdws="cd ~/development/workspaces"
+      alias sandbox="source ~/development/workspaces/config/dotfiles/sandbox/sandbox.zsh"
 
-      alias idea="/Applications/dev\ stuff/ide/IntelliJ\ IDEA.app/Contents/MacOS/idea >& /dev/null &"    
+      alias idea="/Applications/dev_stuff/ide/IntelliJ\ IDEA.app/Contents/MacOS/idea >& /dev/null &"
 esac
 

@@ -5,8 +5,8 @@ case $OSTYPE in
    msys)
       workspaces_locn="/c/projects"
       ;;
-   Darwin)
-      workspaces_locn="~/development/workspaces"
+   darwin14.0)
+      workspaces_locn="$HOME/development/workspaces"
       ;;
 esac
 
@@ -39,7 +39,7 @@ setopt auto_cd
 cdpath=(
   .
   $HOME
-  ${workspaces_locn}
+  $workspaces_locn
 )
 cdpath=($^cdpath(N-/))
 
