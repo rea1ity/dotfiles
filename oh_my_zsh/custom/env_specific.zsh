@@ -7,7 +7,7 @@ case $OSTYPE in
 
       alias dev="cd /mnt/dev/sandbox"
       alias cdws="cd /mnt/dev/sandbox/workspaces"
-      alias sandbox="source /mnt/dev/sandbox/workspaces/dotfiles/sandbox/sandbox.zsh"
+      alias sandbox="cd /mnt/dev/sandbox; source /mnt/dev/sandbox/workspaces/dotfiles/sandbox/sandbox.zsh"
     ;;
 
    msys)

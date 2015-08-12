@@ -10,7 +10,7 @@ case $OSTYPE in
       sandbox_home="/mnt/dev/sandbox"
       sandbox_workspaces=${sandbox_home}/workspaces
       java_locn="openjdk8"
-      orcl_java="jdk1.8"
+      orcl_java="jdk1.8.0"
       idea_locn="idea-IU"
       ;;
    msys)
@@ -60,7 +60,7 @@ export M2_HOME="${sandbox_build}/apache-maven"
 export GRADLE_HOME="${sandbox_build}/gradle"
 export M2_REPO="${sandbox_workspaces}/repo/maven"
 export GRADLE_USER_HOME="${sandbox_workspaces}/repo/gradle"
-export ANDROID_HOME="${sandbox_lang}/android-sdk"
+export ANDROID_HOME="${sandbox_lang}/android/sdk"
 
 echo "setting up ides..."
 export IDEA_HOME="${sandbox_ide}/${idea_locn}"

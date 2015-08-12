@@ -8,6 +8,8 @@
 *.tar
 *.zip
 *.swp
+*.orig
+
 
 # # Logs and databases #
 *.log
