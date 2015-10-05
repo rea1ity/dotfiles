@@ -1,4 +1,4 @@
-case $OSTYPE in 
+case $OSTYPE in
    linux-gnu)
       # running on fedora laptop
       export LS_COLORS='rs=0:di=34;40:ln=35;40:pi=33;40:so=32;40:do=01;35:bd=34;46;01:cd=34;43;01:or=40;31;01:su=0;41:sg=0;46:tw=0;42:ow=0;43:st=37;44:ex=31;40:'
@@ -34,7 +34,7 @@ case $OSTYPE in
       unsetopt promptcr
     ;;
 
-   darwin14.0)
+   darwin15.0)
       export LSCOLORS="exfxcxdxbxegedabagacad"
       alias ls="ls -G $*"
       alias ll="ls -Gla $*"
@@ -43,6 +43,7 @@ case $OSTYPE in
       alias cdws="cd ~/development/workspaces"
       alias sandbox="source ~/development/workspaces/config/dotfiles/sandbox/sandbox.zsh"
 
-      alias idea="/Applications/dev_stuff/ide/IntelliJ\ IDEA.app/Contents/MacOS/idea >& /dev/null &"
+      #alias idea="/Applications/dev_stuff/ide/IntelliJ\ IDEA.app/Contents/MacOS/idea >& /dev/null &"
+      alias idea="open -a IntelliJ\ IDEA"
 esac
 

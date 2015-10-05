@@ -5,7 +5,7 @@ case $OSTYPE in
    msys)
       workspaces_locn="/c/projects"
       ;;
-   darwin14.0)
+   darwin15.0)
       workspaces_locn="$HOME/development/workspaces"
       ;;
 esac

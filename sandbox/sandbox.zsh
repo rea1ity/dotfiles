@@ -23,7 +23,7 @@ case $OSTYPE in
       orcl_java="java/jdk1.8"
       idea_locn="idea"
       ;;
-   darwin14.0)
+   darwin15.0)
       echo "running on mac..."
       sandbox_home="/Applications/dev_stuff"
       sandbox_workspaces="~/development/workspaces"
@@ -50,7 +50,7 @@ case $OSTYPE in
    msys)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
       ;;
-   darwin14.0)
+   darwin15.0)
       export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
       ;;
 esac
