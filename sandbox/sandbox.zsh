@@ -26,8 +26,9 @@ case $OSTYPE in
    darwin15.0)
       echo "running on mac..."
       sandbox_home="/Applications/dev_stuff"
-      sandbox_workspaces="~/development/workspaces"
-      java_locn="openjdk1.8.0.jdk"
+      sandbox_workspaces="/Users/dardav/development/workspaces"
+#      java_locn="openjdk1.8.0.jdk"
+      java_locn="jdk1.8.0.jdk"
       orcl_java="jdk1.8.0.jdk"
       idea_locn="Intellij IDEA.app/Contents"
       ;;
@@ -52,6 +53,7 @@ case $OSTYPE in
       ;;
    darwin15.0)
       export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
+      export GOROOT="${sandbox_lang}/go"
       ;;
 esac
 
@@ -94,6 +96,7 @@ path+=(${GRADLE_HOME}/bin)
 path+=(${IDEA_HOME}/bin)
 path+=(${ANDROID_HOME}/platform-tools)
 path+=(${sandbox_home}/scripts)
+path+=(${GOROOT}/bin)
 
 if [[ $OSTYPE =~ "msys" ]]
 then
