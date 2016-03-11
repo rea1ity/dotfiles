@@ -53,9 +53,11 @@ case $OSTYPE in
       ;;
    darwin15.0)
       export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
-      export GOROOT="${sandbox_lang}/go"
       ;;
 esac
+
+export GOROOT="${sandbox_lang}/go"
+
 
 echo "setting up build tools..."
 export M2_HOME="${sandbox_build}/apache-maven"
