@@ -1,6 +1,6 @@
 case $OSTYPE in
    linux-gnu)
-      workspaces_locn="/mnt/dev/sandbox/workspaces"
+      workspaces_locn="/mnt/development/sandbox/workspaces"
       ;;
    msys)
       workspaces_locn="/c/projects"
