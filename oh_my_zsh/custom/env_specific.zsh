@@ -5,9 +5,9 @@ case $OSTYPE in
       alias ls="ls --group-directories-first --color"
       alias ll="ls --group-directories-first --color -la"
 
-      alias dev="cd /mnt/dev/sandbox"
-      alias cdws="cd /mnt/dev/sandbox/workspaces"
-      alias sandbox="cd /mnt/dev/sandbox; source /mnt/dev/sandbox/workspaces/dotfiles/sandbox/sandbox.zsh"
+      alias dev="cd /mnt/development/sandbox"
+      alias cdws="cd /mnt/development/sandbox/workspaces"
+      alias sandbox="cd /mnt/development/sandbox; source /mnt/development/sandbox/workspaces/dotfiles/sandbox/sandbox.zsh"
     ;;
 
    msys)

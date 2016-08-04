@@ -58,7 +58,7 @@ set formatoptions=qrn1                    "
 set ignorecase                            " case insensitive by default
 set infercase                             " case inferred by default
 set nowrap                                " don't wrap lines
-set scrolloff=3                           " keey 3 lines at the top/bottom to maintain context
+set scrolloff=3                           " keep 3 lines at the top/bottom to maintain context
 set shiftwidth=3                          " auto-indent amount when using cindent, >>, << and stuff like that
 set smartcase                             " if there are caps, go case-sensitive
 set softtabstop=3                         " number of spaces in a tab when editing

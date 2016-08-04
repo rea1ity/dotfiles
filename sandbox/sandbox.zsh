@@ -7,7 +7,7 @@ echo "setting up dev sandbox for $OSTYPE..."
 case $OSTYPE in
    linux-gnu)
       echo "running on linux..."
-      sandbox_home="/mnt/dev/sandbox"
+      sandbox_home="/mnt/development/sandbox"
       sandbox_workspaces=${sandbox_home}/workspaces
       java_locn="openjdk8"
       orcl_java="jdk1.8.0"
@@ -57,6 +57,9 @@ case $OSTYPE in
       export GOPATH="${sandbox_workspaces}/gocode"
       ;;
 esac
+
+export GOROOT="${sandbox_lang}/go"
+
 
 echo "setting up build tools..."
 export M2_HOME="${sandbox_build}/apache-maven"
