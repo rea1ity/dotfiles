@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -274,13 +276,17 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>182 187 833 419 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 168 606 456 0 0 1440 877 </string>
+	<string>269 400 606 456 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>90 123 1042 657 0 0 1440 877 </string>
+	<string>356 449 650 402 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>353 259 970 582 0 0 1440 877 </string>
+	<string>20 238 826 627 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>71 196 858 642 0 0 1440 877 </string>
+	<string>12 57 866 687 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>2 137 1154 732 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -914,10 +920,14 @@
 			<string>/Users/dardav</string>
 		</dict>
 	</array>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncInstallationId</key>
+	<string>563FFCB4-90B5-4756-B196-78AEDA5402B8</string>
 	<key>NoSyncLastTipTime</key>
 	<real>460044677.13980001</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -926,6 +936,8 @@
 	<integer>0</integer>
 	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
 	<true/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>465475911.647901</real>
 	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>PointerActions</key>
@@ -963,16 +975,18 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/dardav/development/workspaces/config/dotfiles/iterm2_config</string>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=1</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-04T10:30:27Z</date>
+	<date>2016-07-15T09:42:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SmartPlacement</key>
@@ -983,8 +997,12 @@
 	</array>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20150626</string>
+	<string>3.0.2</string>
 	<key>kCommandHistoryHasEverBeenUsed</key>
 	<true/>
 </dict>

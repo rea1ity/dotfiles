@@ -54,6 +54,7 @@ case $OSTYPE in
    darwin15.0)
       export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
       export GOROOT="${sandbox_lang}/go"
+      export GOPATH="${sandbox_workspaces}/gocode"
       ;;
 esac
 
@@ -96,21 +97,23 @@ path+=(${GRADLE_HOME}/bin)
 path+=(${IDEA_HOME}/bin)
 path+=(${ANDROID_HOME}/platform-tools)
 path+=(${sandbox_home}/scripts)
-path+=(${GOROOT}/bin)
 
-if [[ $OSTYPE =~ "msys" ]]
-then
-   path+=(${GIT_HOME}/cmd)
-fi
+case $OSTYPE in
+   msys)
+      path+=(${GIT_HOME}/cmd)
+      ;;
+   darwin15.0)
+      path+=(${GOROOT}/bin)
+      path+=("/usr/local/opt/ccache/libexec")
+      ;;
+esac
 
 # remove any duplicate entries
 typeset -U path
-
 
 echo "environment..."
 echo "home: " $SANDBOX_HOME
 echo "path: " $PATH
 mvn -v
 java -version
-
 
