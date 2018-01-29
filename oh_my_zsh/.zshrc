@@ -58,6 +58,8 @@ plugins=(git brew mvn)
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U zmv
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
