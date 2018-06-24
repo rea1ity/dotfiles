@@ -47,8 +47,8 @@ case $os_type in
          java_locn="jdk1.8.0_162.jdk"
          orcl_java="jdk1.8.0_162.jdk"
       else
-         java_locn="jdk-9.0.4.jdk"
-         orcl_java="jdk-9.0.4.jdk"
+         java_locn="jdk-10.0.1.jdk"
+         orcl_java="jdk-10.0.1.jdk"
       fi
       idea_locn="Intellij IDEA.app/Contents"
       ;;
