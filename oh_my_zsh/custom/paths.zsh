@@ -4,6 +4,7 @@ case $OSTYPE in
       ;;
    msys)
       workspaces_locn="/c/projects"
+      git_path="/c/devel/scm/git"
       ;;
    darwin17.0)
       workspaces_locn="$HOME/development/workspaces"
@@ -11,7 +12,7 @@ case $OSTYPE in
 esac
 
 
-# Export existing paths.
+# Export existing paths
 typeset -gxU path PATH
 typeset -gxU cdpath CDPATH
 typeset -gxU manpath MANPATH
@@ -31,6 +32,7 @@ path=(
   /opt/local/{sbin,bin}
   /usr/{sbin,bin}
   /{sbin,bin}
+  $git_path/bin
 )
 path=($^path(N-/))
 
