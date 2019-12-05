@@ -12,12 +12,13 @@ case $OSTYPE in
 
    msys)
       # running on windows under msys
-      export LSCOLORS="exfxcxdxbxegedabagacad"
+      # export LSCOLORS="exfxcxdxbxegedabagacad"
       alias ls="ls -G $*"
       alias ll="ls -Gla $*"
       alias dev="cd /c/devel"
       alias cdws="cd /c/projects"
       alias sandbox="source /c/projects/config/dotfiles/sandbox/sandbox.zsh"
+      alias idea="/c/devel/ide/idea/bin/idea64.exe"
 
       # update key bindings to get home/end and arrow keys working properly
       bindkey "^[[1~" beginning-of-line   # home key
