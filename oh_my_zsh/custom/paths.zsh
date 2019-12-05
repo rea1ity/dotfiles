@@ -5,8 +5,8 @@ case $OSTYPE in
    msys)
       workspaces_locn="/c/projects"
       ;;
-   darwin17.0)
-      workspaces_locn="$HOME/development/workspaces"
+   darwin19.0)
+      workspaces_locn="$HOME/development"
       ;;
 esac
 
@@ -34,6 +34,9 @@ path=(
 )
 path=($^path(N-/))
 
+# set the search path for functions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Set the list of directories that cd searches for directories.
 setopt auto_cd
 cdpath=(
@@ -58,4 +61,3 @@ manpath=(
   /usr/share/man
 )
 manpath=($^manpath(N-/))
-

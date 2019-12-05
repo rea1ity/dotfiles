@@ -34,16 +34,19 @@ case $OSTYPE in
       unsetopt promptcr
     ;;
 
-   darwin17.0)
+   darwin19.0)
       export LSCOLORS="exfxcxdxbxegedabagacad"
       export HOMEBREW_GITHUB_API_TOKEN="77de19f0de6d7c27a60a4972d83a7f27bc91fdf4"
       alias ls="ls -G $*"
       alias ll="ls -Gla $*"
 
-      alias dev="cd /Applications/dev_stuff"
-      alias cdws="cd ~/development/workspaces"
-      alias sandbox="source ~/development/workspaces/config/dotfiles/sandbox/sandbox.zsh"
+      alias dev="cd /Applications/dev_sandbox"
+      alias cdws="cd ~/development"
+      alias sandbox="source ~/development/config/dotfiles/sandbox/sandbox.zsh"
 
       #alias idea="/Applications/dev_stuff/ide/IntelliJ\ IDEA.app/Contents/MacOS/idea >& /dev/null &"
       alias idea="open -a IntelliJ\ IDEA"
+      alias astudio="open -a Android\ Studio"
+      alias atom="open -a Atom"
+      alias wakedougal="wakeonlan -i 255.255.255.0 00:24:1D:D1:C3:B0"
 esac

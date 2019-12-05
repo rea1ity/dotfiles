@@ -10,7 +10,7 @@ case $OSTYPE in
    msys)
       os_type="msys"
       ;;
-   darwin17.0)
+   darwin19.0)
       os_type="macos"
       ;;
 esac
@@ -39,16 +39,14 @@ case $os_type in
       ;;
    macos)
       echo "running on mac..."
-      sandbox_home="/Applications/dev_stuff"
-      sandbox_workspaces="/Users/dardav/development/workspaces"
-#      java_locn="openjdk1.8.0.jdk"
-#      java_locn="jdk1.8.0_102.jdk"
+      sandbox_home="/Applications/dev_sandbox"
+      sandbox_workspaces="/Users/darren/development"
       if [[ $1 -eq 8 ]] ; then
-         java_locn="jdk1.8.0_162.jdk"
-         orcl_java="jdk1.8.0_162.jdk"
+         java_locn="jdk1.8.0_202.jdk"
+         orcl_java="jdk1.8.0_202.jdk"
       else
-         java_locn="jdk-10.0.1.jdk"
-         orcl_java="jdk-10.0.1.jdk"
+         java_locn="openjdk-13.0.1.jdk"
+         orcl_java="openjdk-13.0.1.jdk"
       fi
       idea_locn="Intellij IDEA.app/Contents"
       ;;
@@ -67,15 +65,22 @@ echo "setting up languages..."
 case $os_type in
    linux)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
+      export GIT_HOME="${sandbox_scm}/git"
+      export GIT_INSTALL_DIR="${sandbox_scm}/git"
       ;;
    msys)
       export JAVA_HOME="${sandbox_lang}/${java_locn}"
+      export GIT_HOME="${sandbox_scm}/git"
+      export GIT_INSTALL_DIR="${sandbox_scm}/git"
       ;;
    macos)
       # manage java through home-brew as the installer is a pain!
       # export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
       export JAVA_HOME="/Library/Java/JavaVirtualMachines/${java_locn}/Contents/Home"
       #export JAVA_HOME=$(/usr/libexec/java_home)
+      # git installed by homebrew
+      #export GIT_HOME="${sandbox_scm}/git"
+      #export GIT_INSTALL_DIR="${sandbox_scm}/git"
       ;;
 esac
 
@@ -98,8 +103,6 @@ export ANDROID_STUDIO_HOME="${sandbox_ide}/android-studio"
 export STUDIO_JDK="${sandbox_lang}/${orcl_java}"
 
 echo "setting up development tooling..."
-export GIT_HOME="${sandbox_scm}/git"
-export GIT_INSTALL_DIR="${sandbox_scm}/git"
 #export SVN_HOME="${sandbox_scm}/subversion"
 
 
@@ -123,13 +126,14 @@ path+=(${ANDROID_HOME}/platform-tools)
 path+=(${ANDROID_HOME}/tools/bin)
 path+=(${sandbox_home}/scripts)
 
-case $OSTYPE in
+case $os_type in
    msys)
       path+=(${GIT_HOME}/cmd)
       ;;
    macos)
       path+=(${GOROOT}/bin)
-      path+=("/usr/local/opt/ccache/libexec")
+      path+=(${GOPATH}/bin)
+      # path+=("/usr/local/opt/ccache/libexec")
       ;;
 esac
 
@@ -141,4 +145,3 @@ echo "home: " $SANDBOX_HOME
 echo "path: " $PATH
 mvn -v
 java -version
-
