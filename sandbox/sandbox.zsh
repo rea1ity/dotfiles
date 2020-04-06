@@ -4,58 +4,58 @@ clear
 
 os_type="undefined"
 case $OSTYPE in
-   linux-gnu)
-      os_type="linux"
-      ;;
-   msys)
-      os_type="msys"
-      ;;
-   darwin19.0)
-      os_type="macos"
-      ;;
+  darwin19.0)
+    os_type="macos"
+    ;;
+  linux-gnu)
+    os_type="linux"
+    ;;
+  msys)
+    os_type="msys"
+    ;;
 esac
 
 echo "setting up dev sandbox for $os_type ($OSTYPE)..."
-# define a number of params that help set everything up...
+# define a number of params for each os that help set everything up...
 
 case $os_type in
-   linux)
-      echo "running on linux..."
-      sandbox_home="/mnt/development/sandbox"
-      sandbox_workspaces=${sandbox_home}/workspaces
-      java_locn="openjdk8"
-      orcl_java="jdk1.8.0"
-      idea_locn="idea-IU"
-      ;;
-   msys)
-      echo "running on msys under windows..."
-      export MSYSTEM=MSYS
+  macos)
+    echo "running on mac..."
+    sandbox_home="/Applications/dev_sandbox"
+    sandbox_workspaces="${HOME}/development"
 
-      sandbox_home="/c/devel"
-      sandbox_workspaces="/c/projects"
-      if [[ $1 -eq 8 ]] ; then
-         java_locn="java/jdk1.8"
-         orcl_java="java/jdk1.8"
-      else
-         java_locn="java/jdk-11"
-         orcl_java="java/jdk-11"
-      fi
-      idea_locn="idea"
-      ;;
-   macos)
-      echo "running on mac..."
-      sandbox_home="/Applications/dev_sandbox"
-      sandbox_workspaces="~/development"
+    if [[ $1 -eq 8 ]] ; then
+       java_locn="jdk1.8.0_202.jdk"
+       orcl_java="jdk1.8.0_202.jdk"
+    else
+       java_locn="openjdk-14.jdk"
+       orcl_java="openjdk-14.jdk"
+    fi
+    idea_locn="Intellij IDEA.app/Contents"
+    ;;
+  linux)
+    echo "running on linux..."
+    sandbox_home="/mnt/development/sandbox"
+    sandbox_workspaces=${sandbox_home}/workspaces
+    java_locn="openjdk8"
+    orcl_java="jdk1.8.0"
+    idea_locn="idea-IU"
+    ;;
+  msys)
+    echo "running on msys under windows..."
+    export MSYSTEM=MSYS
 
-      if [[ $1 -eq 8 ]] ; then
-         java_locn="jdk1.8.0_202.jdk"
-         orcl_java="jdk1.8.0_202.jdk"
-      else
-         java_locn="openjdk-13.0.1.jdk"
-         orcl_java="openjdk-13.0.1.jdk"
-      fi
-      idea_locn="Intellij IDEA.app/Contents"
-      ;;
+    sandbox_home="/c/devel"
+    sandbox_workspaces="/c/projects"
+    if [[ $1 -eq 8 ]] ; then
+      java_locn="java/jdk1.8"
+      orcl_java="java/jdk1.8"
+    else
+      java_locn="java/jdk-11"
+      orcl_java="java/jdk-11"
+    fi
+    idea_locn="idea"
+    ;;
 esac
 
 sandbox_lang=${sandbox_home}/langs
@@ -71,53 +71,64 @@ export DEV_WORKSPACES="${sandbox_workspaces}"
 
 echo "setting up languages..."
 case $os_type in
-   linux)
-      export JAVA_HOME="${sandbox_lang}/${java_locn}"
-      export GIT_HOME="${sandbox_scm}/git"
-      export GIT_INSTALL_DIR="${sandbox_scm}/git"
-      ;;
-   msys)
-      export JAVA_HOME="${sandbox_lang}/${java_locn}"
-      export GIT_HOME="${sandbox_scm}/git"
-      export GIT_INSTALL_DIR="${sandbox_scm}/git"
-      export ERLANG_HOME="${sandbox_lang}/erlang"      
-      ;;
-   macos)
-      # manage java through home-brew as the installer is a pain!
-      # export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
-      export JAVA_HOME="/Library/Java/JavaVirtualMachines/${java_locn}/Contents/Home"
-      #export JAVA_HOME=$(/usr/libexec/java_home)
-      # git needed/installed by homebrew
-      #export GIT_HOME="${sandbox_scm}/git"
-      #export GIT_INSTALL_DIR="${sandbox_scm}/git"
-      ;;
+  macos)
+    # manage java through home-brew as the standard java installer is a pain!
+    # export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/${java_locn}/Contents/Home"
+    #export JAVA_HOME=$(/usr/libexec/java_home)
+    # git needed/installed by homebrew
+    #export GIT_HOME="${sandbox_scm}/git"
+    #export GIT_INSTALL_DIR="${sandbox_scm}/git"
+    ;;
+  linux)
+    export JAVA_HOME="${sandbox_lang}/${java_locn}"
+    export GIT_HOME="${sandbox_scm}/git"
+    export GIT_INSTALL_DIR="${sandbox_scm}/git"
+    ;;
+  msys)
+    export JAVA_HOME="${sandbox_lang}/${java_locn}"
+    export GIT_HOME="${sandbox_scm}/git"
+    export GIT_INSTALL_DIR="${sandbox_scm}/git"
+    export ERLANG_HOME="${sandbox_lang}/erlang"
+    ;;
 esac
-
-export GOROOT="${sandbox_lang}/go"
-export GOPATH="${sandbox_workspaces}/gocode"
 
 echo "setting up build tools..."
 export M2_HOME="${sandbox_build}/apache-maven"
-export GRADLE_HOME="${sandbox_build}/gradle"
 export M2_REPO="${sandbox_workspaces}/repo/maven"
+
+export GRADLE_HOME="${sandbox_build}/gradle"
 export GRADLE_USER_HOME="${sandbox_workspaces}/repo/gradle"
-export ANDROID_HOME="${sandbox_lang}/android/sdk"
 
 echo "setting up ides..."
 export IDEA_HOME="${sandbox_ide}/${idea_locn}"
 export IDEA_PROPERTIES="${IDEA_HOME}/bin/idea.properties"
-#use the provided runtimes for the ides
+
+# don't override - use the provided runtimes for the ides
 #export IDEA_JDK="${sandbox_lang}/${orcl_java}"
 #export IDEA_JDK_64="${sandbox_lang}/${orcl_java}"
-export ANDROID_STUDIO_HOME="${sandbox_ide}/android-studio"
 #export STUDIO_JDK="${sandbox_lang}/${orcl_java}"
 
 echo "setting up development tooling..."
 #export SVN_HOME="${sandbox_scm}/subversion"
 
 echo "setting up databasey stuff..."
-export TNS_ADMIN="${sandbox_database}/oracle/tns_admin"
-export INSTANT_CLIENT="${sandbox_database}/oracle/instantclient_64"
+if [[ -d ${sandbox_database}/oracle ]]; then
+  export TNS_ADMIN="${sandbox_database}/oracle/tns_admin"
+  export INSTANT_CLIENT="${sandbox_database}/oracle/instantclient_64"
+fi
+
+if [[ -d ${sandbox_lang}/android ]]; then
+  echo "setting up android..."
+  export ANDROID_HOME="${sandbox_lang}/android/sdk"
+  export ANDROID_STUDIO_HOME="${sandbox_ide}/android-studio"
+fi
+
+if [[ -d ${sandbox_lang}/go ]]; then
+  echo "setting up golang..."
+  export GOROOT="${sandbox_lang}/go"
+  export GOPATH="${sandbox_workspaces}/gocode"
+fi
 
 echo "setting path..."
 typeset -Ug path
@@ -131,29 +142,33 @@ path=("/usr/local/bin"
       "/sbin")
 
 # extra dev bits
-path+=(${sandbox_database}/oracle/instantclient_64)
 path+=(${JAVA_HOME}/bin)
 path+=(${M2_HOME}/bin)
 path+=(${GRADLE_HOME}/bin)
 path+=(${IDEA_HOME}/bin)
-path+=(${ANDROID_HOME}/platform-tools)
-path+=(${ANDROID_HOME}/tools/bin)
 path+=(${sandbox_home}/scripts)
-path+=(${SVN_HOME}/bin)
+
+[[ -v INSTANT_CLIENT ]] && path+=($INSTANT_CLIENT)
+[[ -d ${sandbox_lang}/android ]] && path+=(${ANDROID_HOME}/platform-tools)
+[[ -d ${sandbox_lang}/android ]] && path+=(${ANDROID_HOME}/tools/bin)
+[[ -d ${sandbox_lang}/go ]] && path+=(${GOROOT}/bin)
+[[ -d ${sandbox_lang}/go ]] && path+=(${GOPATH}/bin)
+[[ -v SVN_HOME ]] && path+=(${SVN_HOME}/bin)
+
 
 case $os_type in
-   msys)
-      path+=(${GIT_HOME}/cmd)
-      path+=("/c/Program Files (x86)/MSBuild/14.0/Bin")
-      path+=("/c/windows/system32")
-      path+=(${sandbox_server}/nodejs)
-      path+=($ERLANG_HOME/bin)
-      ;;
-   macos)
-      path+=(${GOROOT}/bin)
-      path+=(${GOPATH}/bin)
-      # path+=("/usr/local/opt/ccache/libexec")
-      ;;
+  macos)
+    # make sure the brew installed git overrides apples
+    path=("/usr/local/git/bin" $path)
+    # path+=("/usr/local/opt/ccache/libexec")
+    ;;
+  msys)
+    path+=(${GIT_HOME}/cmd)
+    path+=("/c/Program Files (x86)/MSBuild/14.0/Bin")
+    path+=("/c/windows/system32")
+    path+=(${sandbox_server}/nodejs)
+    path+=($ERLANG_HOME/bin)
+    ;;
 esac
 
 # remove any duplicate entries
@@ -162,5 +177,7 @@ typeset -U path
 echo "environment..."
 echo "home: " $SANDBOX_HOME
 echo "path: " $PATH
-mvn -v
 java -version
+mvn -v
+gradle --version
+

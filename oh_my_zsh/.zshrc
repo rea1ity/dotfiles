@@ -9,7 +9,7 @@ HIST_STAMPS="yyyy-mm-dd"      # change the command execution timestamp shown in 
 
 autoload -U zmv
 
-plugins=( )             # plugins to load
+plugins=( brew git )             # plugins to load
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
