@@ -25,12 +25,11 @@ case $os_type in
     sandbox_workspaces="${HOME}/development"
 
     if [[ $1 -eq 8 ]] ; then
-       java_locn="jdk1.8.0_202.jdk"
-       orcl_java="jdk1.8.0_202.jdk"
+      java_locn=$(ls -d /Library/Java/JavaVirtualMachines/jdk1.8* | head -n 1)
     else
-       java_locn="openjdk-14.jdk"
-       orcl_java="openjdk-14.jdk"
+       java_locn=$(ls -d /Library/Java/JavaVirtualMachines/openjdk* | head -n 1)
     fi
+    orcl_java=$java_locn
     idea_locn="Intellij IDEA.app/Contents"
     ;;
   linux)
@@ -74,7 +73,7 @@ case $os_type in
   macos)
     # manage java through home-brew as the standard java installer is a pain!
     # export JAVA_HOME="${sandbox_lang}/${java_locn}/Contents/Home"
-    export JAVA_HOME="/Library/Java/JavaVirtualMachines/${java_locn}/Contents/Home"
+    export JAVA_HOME="${java_locn}/Contents/Home"
     #export JAVA_HOME=$(/usr/libexec/java_home)
     # git needed/installed by homebrew
     #export GIT_HOME="${sandbox_scm}/git"
@@ -180,4 +179,3 @@ echo "path: " $PATH
 java -version
 mvn -v
 gradle --version
-
