@@ -1,20 +1,4 @@
-# # Packages #
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.swp
-*.orig
-
-
-# # Logs and databases #
-*.log
-*.sql
-*.sqlite
+/**/*secure*.*
 
 # # OS generated files #
 .DS_Store

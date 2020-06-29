@@ -1,7 +1,6 @@
 case $OSTYPE in
   darwin19.0)
     export LSCOLORS="exfxcxdxbxegedabagacad"
-    export HOMEBREW_GITHUB_API_TOKEN="77de19f0de6d7c27a60a4972d83a7f27bc91fdf4"
     alias ls="ls -G $*"
     alias ll="ls -Gla $*"
 
