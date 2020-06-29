@@ -25,11 +25,10 @@ case $os_type in
     sandbox_workspaces="${HOME}/development"
 
     if [[ $1 -eq 8 ]] ; then
-      java_locn=$(ls -d /Library/Java/JavaVirtualMachines/jdk1.8* | head -n 1)
+      java_locn=$(ls -d /Library/Java/JavaVirtualMachines/adoptopenjdk-8* | head -n 1)
     else
       java_locn=$(ls -d /Library/Java/JavaVirtualMachines/openjdk* | head -n 1)
     fi
-    orcl_java=$java_locn
     idea_locn="Intellij IDEA.app/Contents"
     ;;
   linux)
@@ -37,7 +36,6 @@ case $os_type in
     sandbox_home="/mnt/development/sandbox"
     sandbox_workspaces=${sandbox_home}/workspaces
     java_locn="openjdk8"
-    orcl_java="jdk1.8.0"
     idea_locn="idea-IU"
     ;;
   msys)
@@ -48,10 +46,8 @@ case $os_type in
     sandbox_workspaces="/c/projects"
     if [[ $1 -eq 8 ]] ; then
       java_locn="java/jdk1.8"
-      orcl_java="java/jdk1.8"
     else
       java_locn="java/jdk-11"
-      orcl_java="java/jdk-11"
     fi
     idea_locn="idea"
     ;;
@@ -104,9 +100,9 @@ export IDEA_HOME="${sandbox_ide}/${idea_locn}"
 export IDEA_PROPERTIES="${IDEA_HOME}/bin/idea.properties"
 
 # don't override - use the provided runtimes for the ides
-#export IDEA_JDK="${sandbox_lang}/${orcl_java}"
-#export IDEA_JDK_64="${sandbox_lang}/${orcl_java}"
-#export STUDIO_JDK="${sandbox_lang}/${orcl_java}"
+#export IDEA_JDK="${sandbox_lang}/${java_locn}"
+#export IDEA_JDK_64="${sandbox_lang}/${java_locn}"
+#export STUDIO_JDK="${sandbox_lang}/${java_locn}"
 
 echo "setting up development tooling..."
 #export SVN_HOME="${sandbox_scm}/subversion"
