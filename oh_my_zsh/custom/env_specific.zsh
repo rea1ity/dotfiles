@@ -1,5 +1,5 @@
 case $OSTYPE in
-  darwin19.0)
+  darwin*)
     export LSCOLORS="exfxcxdxbxegedabagacad"
     alias ls="ls -G $*"
     alias ll="ls -Gla $*"

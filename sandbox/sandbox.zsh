@@ -1,10 +1,9 @@
 #!/bin/zsh
-
 clear
 
 os_type="undefined"
 case $OSTYPE in
-  darwin19.0)
+  darwin*)
     os_type="macos"
     ;;
   linux-gnu)

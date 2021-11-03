@@ -1,16 +1,15 @@
 case $OSTYPE in
-   linux-gnu)
-      workspaces_locn="/mnt/development/sandbox/workspaces"
-      ;;
-   msys)
-      workspaces_locn="/c/projects"
-      git_path="/c/devel/scm/git"
-      ;;
-   darwin19.0)
-      workspaces_locn="$HOME/development"
-      ;;
+  darwin*)
+    workspaces_locn="$HOME/development"
+    ;;
+  linux-gnu)
+    workspaces_locn="/mnt/development/sandbox/workspaces"
+    ;;
+  msys)
+    workspaces_locn="/c/projects"
+    git_path="/c/devel/scm/git"
+    ;;
 esac
-
 
 # Export existing paths
 typeset -gxU path PATH
@@ -22,7 +21,6 @@ typeset -gxU infopath INFOPATH
 
 # Tie the new paths.
 typeset -gxTU INFOPATH infopath
-
 
 # Set the list of directories that zsh searches for commands.
 path=(
